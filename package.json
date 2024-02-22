@@ -5,9 +5,15 @@
   "repository": "git@github.com:triangle-digital-sarl/tri-connect-express-app.github.io.git",
   "author": "Fabrice Dufils Siyapdje <dev.dafab@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "redocly": "redocly",
+    "build:swagger": "redocly  build-docs  ../../node_modules/tri-connect-http-client/swagger.json -o docs/swagger.html"
+  },
   "devDependencies": {
     "@redocly/cli": "^1.9.1",
     "tri-connect-datatypes": "*",
     "tri-connect-http-client": "*"
-  }
+  },
+  "nohoist": ["tri-connect-http-client"],
+  "type": "module"
 }
