@@ -1,0 +1,13 @@
+{
+  "name": "tri-connect-documentation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:triangle-digital-sarl/tri-connect-express-app.github.io.git",
+  "author": "Fabrice Dufils Siyapdje <dev.dafab@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@redocly/cli": "^1.9.1",
+    "tri-connect-datatypes": "*",
+    "tri-connect-http-client": "*"
+  }
+}
