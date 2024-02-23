@@ -7,15 +7,17 @@
   "license": "MIT",
   "scripts": {
     "redocly": "redocly",
+    "mermaid": "mmdc",
     "build:swagger": "redocly  build-docs  ../../node_modules/tri-connect-http-client/swagger.json -o docs/swagger.html",
-    "build:db-doc": "cp -f ../../node_modules/tri-connect-db/prisma/db.md docs/db.md",
+    "build:db-doc": "yarn mermaid -i ../../node_modules/tri-connect-db/prisma/db.md -o docs/db.md",
     "build": "yarn build:swagger && yarn build:db-doc"
   },
   "devDependencies": {
+    "@mermaid-js/mermaid-cli": "^10.8.0",
     "@redocly/cli": "^1.9.1",
     "tri-connect-datatypes": "*",
-    "tri-connect-http-client": "*",
-    "tri-connect-documentation": "*"
+    "tri-connect-documentation": "*",
+    "tri-connect-http-client": "*"
   },
   "type": "module"
 }
