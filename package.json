@@ -7,13 +7,15 @@
   "license": "MIT",
   "scripts": {
     "redocly": "redocly",
-    "build:swagger": "redocly  build-docs  ../../node_modules/tri-connect-http-client/swagger.json -o docs/swagger.html"
+    "build:swagger": "redocly  build-docs  ../../node_modules/tri-connect-http-client/swagger.json -o docs/swagger.html",
+    "build:db-doc": "cp -f ../../node_modules/tri-connect-db/prisma/db.md docs/db.md",
+    "build": "yarn build:swagger && yarn build:db-doc"
   },
   "devDependencies": {
     "@redocly/cli": "^1.9.1",
     "tri-connect-datatypes": "*",
-    "tri-connect-http-client": "*"
+    "tri-connect-http-client": "*",
+    "tri-connect-documentation": "*"
   },
-  "nohoist": ["tri-connect-http-client"],
   "type": "module"
 }
