@@ -17,7 +17,8 @@ Country
 Every countries that are managed in tri-connect-system.
 
 All Applications should be deployed based on country.
-Country is important to determine possible payment methods. [bookings.payment_method](#bookings), currencies,
+Country is important to determine possible payment methods. 
+[bookings.payment_method](#bookings), currencies,
 languages and most importantly to find bus, trains or fly.
 
 The Data use for this entity are coming from https://restcountries.com/
@@ -33,7 +34,7 @@ The Data use for this entity are coming from https://restcountries.com/
     > code ISO 3166-1 alpha-3.
     > For Example Cameroon -> CMR
   - `cioc`: code International Olympic Committee
-  - `capital`: 
+  - `capital`: List of capitals
   - `continent`: 
   - `lat`: 
   - `lng`: 
@@ -51,11 +52,17 @@ The Data use for this entity are coming from https://openstreetmap.com/
 
 **Properties**
   - `id`: 
-  - `name`: 
-  - `postal_code`: 
-  - `lon`: 
-  - `lat`: 
-  - `abbreviations`: 
+  - `name`: Name of the locations. i.e: citys, village or canton name
+  - `postal_code`
+    > Represents the postal code of the location. It's marked as optional (String?),
+    > indicating that it may not be present for all locations. this is common in some african countries.
+  - `lon`
+    > This field is of type String (To avoid precision lost) and represents the longitude 
+    > coordinate of the location.
+  - `lat`
+    > This field is of type String (To avoid precision lost) and represents the latitude 
+    > coordinate of the location.
+  - `abbreviations`: Abbreviations associated with the location. similar to cca2 or cca3 but for locations.
   - `countryName`: 
 
 
@@ -63,14 +70,25 @@ The Data use for this entity are coming from https://openstreetmap.com/
 ![diagram](./db-2.svg)
 
 ### `users`
+Users can represents:
+- the simple user of app, who search bus, purchase ticket and so on.
+- the admin user of app, who can persom some administrative tasks
+- the operators services
 
 **Properties**
   - `id`: 
   - `first_name`: 
   - `last_name`: 
   - `email`: 
-  - `auth_id`: 
-  - `roles`: 
+  - `auth_id`
+    > Represent auth_id from the autenication.user table from Supabase.
+    > So it help link our user with authentication session manage by supabase.
+  - `roles`
+    > Different role a user can have in our system
+    > - PASSENGER
+    > - REGISTERED
+    > - ADMIN
+    > - SUPER_ADMIN
   - `location_id`: 
 
 ### `profiles`
@@ -80,7 +98,7 @@ The Data use for this entity are coming from https://openstreetmap.com/
   - `user_id`: 
   - `profile_picture`: 
   - `preferred_language`: 
-  - `settings`: 
+  - `settings`: A Json reprensenting User Setting
 
 ### `addresses`
 
@@ -150,6 +168,9 @@ The Data use for this entity are coming from https://openstreetmap.com/
   - `trip_id`: 
 
 ### `trips`
+Trips
+
+Trips is the entry point for searching correspondance
 
 **Properties**
   - `id`: 
@@ -175,8 +196,16 @@ The Data use for this entity are coming from https://openstreetmap.com/
 
 **Properties**
   - `id`: 
-  - `payment_method`: 
-  - `passengers`: 
+  - `payment_method`
+    > Payment method. orange money and mtn money are supported
+    > @todo(fds): payment method should be enum 
+    > ```
+    > enum {
+    > OM,
+    > MOMO,
+    > }
+    > ```
+  - `passengers`: List of passengers as json list
   - `trip_id`: 
   - `departure_date`: 
   - `arrival_date`: 
