@@ -1,0 +1,12 @@
+
+
+
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+section {
+  margin-left: 20%;
+  margin-top: 20px;
+}
