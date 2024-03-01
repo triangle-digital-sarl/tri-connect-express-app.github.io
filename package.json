@@ -15,7 +15,6 @@
   "devDependencies": {
     "@mermaid-js/mermaid-cli": "^10.8.0",
     "@redocly/cli": "^1.9.1",
-    "@tri/types": "*",
     "@tri/sdk": "*"
   },
   "type": "module"
