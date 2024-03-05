@@ -10,6 +10,7 @@
 				"smui-theme": "smui-theme",
 				"start": "vite dev",
 				"build": "rimraf docs && vite build",
+				"postbuild": "mv build docs",
 				"redocly": "redocly",
 				"mermaid": "mmdc",
 				"test": "npm run test:integration && npm run test:unit",
