@@ -4,7 +4,6 @@
 ### Android ###
 # Gradle files
 .gradle/
-build/
 android/
 ios/
 .sveltekit/
