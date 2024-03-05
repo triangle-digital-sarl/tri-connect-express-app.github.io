@@ -14,12 +14,14 @@ const config = {
 	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 
 	kit: {
+		// paths: {
+		// 	base: process.env.NODE_ENV === 'production' ? '/tri-connect-express-app.github.io' : ''
+		// },
 		prerender: {
 			handleMissingId: 'ignore'
 		},
 		adapter: adapter({
-			fallback: 'index.html',
-			precompress: false,
+			precompress: true,
 			strict: true
 		})
 	}

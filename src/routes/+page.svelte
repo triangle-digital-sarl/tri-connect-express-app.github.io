@@ -1,6 +1,3 @@
-<div class="accordion-container">
+<div>
+  Entry point documentation
 </div>
-
-
-<script lang="ts">
-</script>
